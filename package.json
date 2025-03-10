@@ -4,7 +4,8 @@
     "scripts": {
       "build": "yarn run esbuild",
       "production": "yarn run esbuild --production",
-      "watch": "yarn run esbuild --watch"
+      "watch": "yarn run esbuild --watch",
+      "postinstall": "yarn run build"
     },
     "repository": {
       "type": "git",
