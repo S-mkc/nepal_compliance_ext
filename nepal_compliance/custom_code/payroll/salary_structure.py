@@ -96,10 +96,34 @@ def get_deductions(ssf_compliance=False, deduction_type="unmarried"):
     
     return deductions
 
+def wait_for_salary_components():
+    
+    import time
+    required_components = ["Basic Salary", "Other Allowance", "Income Tax Unmarried", "Overtime", "Gratuity", "Earning Adjustment", "Deduction Adjustment",
+                            "Employer's Contribution SSF Deduction", "Insurance", "CIT", "Employee's Contribution SSF", "Employer's Contribution SSF",
+                            "Grade Amount", "Income Tax Married", "Income Tax Unmarried", "Provident Fund Employer", "Provident Fund Employee", "Leave and Late Deduction",
+                            "Provident Fund Employer Deduction", "Gratuity Deduction"]
+    timeout = 30  
+    while timeout > 0:
+        existing_components = frappe.get_all("Salary Component", fields=["name"])
+        existing_names = [comp["name"] for comp in existing_components]
+        if all(comp in existing_names for comp in required_components):
+            return True
+        time.sleep(5)
+        timeout -= 5
+    frappe.throw("Salary Components were not created in time!")
+
 def create_salary_structures():
+    
+    wait_for_salary_components()
     companies = frappe.get_all("Company", fields=["name"])
+    if not companies:
+        frappe.throw("No Companies found!")
+
     for company in companies:
-        create_salary_structure_for_company(company.name)
+        create_salary_structure_for_company(company["name"])
+        frappe.db.commit()
+
 
 def create_salary_structure_for_company(company_name):
 
