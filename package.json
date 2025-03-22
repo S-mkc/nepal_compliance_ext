@@ -5,9 +5,7 @@
   "scripts": {
   "build": "node esbuild",
   "production": "node esbuild --production",
-  "postinstall": "bench build --app nepal_compliance || echo 'Build failed, continuing installation...'",
-  "install": "yarn run build",
-  "postinstall-migrate": "bench --site all migrate"
+  "postinstall": "bench build --app nepal_compliance || echo 'Build failed, continuing installation...'"
   },
   "engines": {
     "node": ">=18"
