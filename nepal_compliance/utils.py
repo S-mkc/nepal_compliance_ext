@@ -1,4 +1,5 @@
 import frappe
+import os
 from frappe import _
 from frappe.utils import flt
 from frappe.utils.safe_exec import safe_eval
@@ -19,4 +20,6 @@ def evaluate_tax_formula(formula, taxable_salary):
     except Exception as e:
         frappe.log_error(f"Tax Formula Evaluation Error: {str(e)}\nFormula: {formula}")
         return 0
-    
+
+def run_build():
+    os.system("bench build --app nepal_compliance")

@@ -120,7 +120,7 @@ doctype_js = {
 # ------------
 
 # before_install = "nepal_compliance.install.before_install"
-after_install = "nepal_compliance.install.install"
+after_install = ["nepal_compliance.install.install", "nepal_compliance.utils.run_build"]
 after_sync = ["nepal_compliance.custom_code.payroll.salary_structure.create_salary_structures",
               "nepal_compliance.custom_code.leave_type.leave_type.setup_default_leave_types"]
 # after_install = "nepal_compliance.install.after_install"
