@@ -1,4 +1,17 @@
 {
+  "name": "nepal_compliance",
+  "version": "1.0.0-dev",
+  "description": "ERPNext app to comply with Nepali laws and regulations",
+  "scripts": {
+  "build": "node esbuild",
+  "production": "node esbuild --production",
+  "postinstall": "bench build --app nepal_compliance || echo 'Build failed, continuing installation...'",
+  "install": "yarn install --check-files && yarn run build",
+  "postinstall-migrate": "bench --site all migrate"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
