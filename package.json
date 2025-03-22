@@ -6,7 +6,7 @@
   "build": "node esbuild",
   "production": "node esbuild --production",
   "postinstall": "bench build --app nepal_compliance || echo 'Build failed, continuing installation...'",
-  "install": "yarn install --check-files && yarn run build",
+  "install": "yarn run build",
   "postinstall-migrate": "bench --site all migrate"
   },
   "engines": {
