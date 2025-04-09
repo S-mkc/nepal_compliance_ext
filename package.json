@@ -1,28 +1,32 @@
 {
-    "name": "nepal_compliance",
-    "version": "1.0.0-dev",
-    "scripts": {
-      "build": "yarn run esbuild",
-      "production": "yarn run esbuild --production",
-      "watch": "yarn run esbuild --watch",
-      "postinstall": "yarn run build"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/S-mkc/nepal_compliance_ext.git"
-    },
-    "author": "Mukesh",
-    "license": "GNU General Public License (v3)",
-    "bugs": {
-      "url": "https://github.com/S-mkc/nepal_compliance_ext/issues"
-    },
-    "engines": {
-      "node": ">=18"
-    },
+  "name": "nepal_compliance",
+  "version": "1.0.0-dev",
+  "scripts": {
+    "build": "yarn run esbuild",
+    "production": "yarn run esbuild --production",
+    "watch": "yarn run esbuild --watch",
+    "postinstall": "yarn run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/S-mkc/nepal_compliance_ext.git"
+  },
+  "author": "Mukesh",
+  "license": "GNU General Public License (v3)",
+  "bugs": {
+    "url": "https://github.com/S-mkc/nepal_compliance_ext/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "devDependencies": {
-    "esbuild": "^0.24.0",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
+    "esbuild": "^0.24.0",
     "husky": "^9.1.7"
+  },
+  "dependencies": {
+    "erpnext": "^1.0.2",
+    "frappe": "^0.0.1"
   }
 }
